@@ -9,6 +9,8 @@
             Hypospray is a lightweight and modular CDI implementation for Java, designed for high performance and
             developer productivity.
         </p>
+        <p class="blurb">Hypospray is currently in early development. Please check the Github repository for the latest
+            status.</p>
         <div class="actions">
             <a href="documentation.html" class="action primary">
                 Get Started
