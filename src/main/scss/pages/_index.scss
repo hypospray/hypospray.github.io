@@ -1,0 +1,79 @@
+// Styles for the index page.
+
+.index {
+  .intro {
+    text-align: center;
+
+    .highlight {
+      color: $primary-color;
+    }
+
+    .heading {
+      font-size: 4rem;
+      margin-top: 4rem;
+      letter-spacing: -0.025rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .blurb {
+      color: $light-text-color;
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+    }
+
+    .actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+
+      .action {
+        padding: 0.75em 2em;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        border-radius: 0.375em;
+        color: $text-color;
+        font-weight: 600;
+        line-height: 1.75rem;
+
+        transition: background-color $transition-speed;
+
+        &.primary {
+          background-color: $primary-color;
+
+          &:hover {
+            background-color: $primary-color-hover;
+          }
+        }
+
+        &.secondary {
+          background-color: $secondary-color;
+
+          &:hover {
+            background-color: $secondary-color-hover;
+          }
+        }
+      }
+    }
+  }
+
+  .features {
+    display: grid;
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    gap: 2rem;
+    margin: 2rem 0;
+
+    .feature {
+      background-color: $card-background-color;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      transition: box-shadow $transition-speed;
+
+      &:hover {
+        box-shadow: 0 0 0 3px rgba($primary-color, 0.3);
+      }
+    }
+  }
+}

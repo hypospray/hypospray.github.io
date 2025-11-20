@@ -1,0 +1,73 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>eu.jbeernink</groupId>
+    <artifactId>hypospray-site</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>Hypospray</name>
+    <description>A website for the Hypospray DI framework.</description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.release>25</maven.compiler.release>
+        <jbake.version>2.7.0-rc.7</jbake.version>
+        <libsass.maven.plugin.version>0.3.4</libsass.maven.plugin.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.jbake</groupId>
+                <artifactId>jbake-maven-plugin</artifactId>
+                <version>${jbake.version}</version>
+                <configuration>
+                    <outputDirectory>${project.build.directory}/website</outputDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>jbake</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+
+                <dependencies>
+                    <dependency>
+                        <groupId>org.freemarker</groupId>
+                        <artifactId>freemarker</artifactId>
+                        <version>2.3.31</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>com.vladsch.flexmark</groupId>
+                        <artifactId>flexmark-all</artifactId>
+                        <version>0.62.2</version>
+                    </dependency>
+
+                </dependencies>
+
+            </plugin>
+
+            <plugin>
+                <groupId>com.gitlab.haynes</groupId>
+                <artifactId>libsass-maven-plugin</artifactId>
+                <version>${libsass.maven.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <inputPath>${basedir}/src/main/scss/</inputPath>
+                    <outputPath>${basedir}/target/website/css/</outputPath>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,6 @@
+
+.releases {
+  >li+.empty {
+      display: none;
+  }
+}
